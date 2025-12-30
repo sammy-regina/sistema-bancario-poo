@@ -6,7 +6,7 @@ public class Main {
         ContaBanco p1 = new ContaBanco();
         p1.setNumConta(1111);
         p1.setDono("Jubileu");
-        p1.abrirConta("CC"); // Saldo inicial: 50
+        p1.abrirConta(TipoConta.CC); // Saldo inicial: 50
 
         System.out.println("Tentando fechar conta com saldo...");
         p1.fecharConta(); // Deve exibir ERRO: Conta com dinheiro
@@ -19,7 +19,7 @@ public class Main {
         ContaBanco p2 = new ContaBanco();
         p2.setNumConta(2222);
         p2.setDono("Creuza");
-        p2.abrirConta("CP"); // Saldo inicial: 150
+        p2.abrirConta(TipoConta.CP); // Saldo inicial: 150
 
         p2.sacar(160); // Provoca saldo negativo de -10
         System.out.println("Tentando fechar conta em débito...");

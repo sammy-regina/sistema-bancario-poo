@@ -35,9 +35,9 @@ public class ContaBanco {
     public void abrirConta(TipoConta tipo) {
         this.setTipo(tipo);
         this.setStatus(true);
-        if (tipo.equals("CC")) { // se o tipo da conta for CC
+        if (tipo == TipoConta.CC) { // se o tipo da conta for CC
             this.setSaldo(50.0f); // saldo inicial de 50
-        } else if (tipo.equals("CP")) { // se o tipo da conta for CP
+        } else if (tipo == TipoConta.CP) { // se o tipo da conta for CP
             this.setSaldo(150.0f); // saldo inicial de 150
         }
         System.out.println("Conta aberta com sucesso para "  + this.getDono());
@@ -50,9 +50,11 @@ public class ContaBanco {
     public void fecharConta() {
         if (this.getSaldo() > 0) {
             System.out.println("ERRO: Conta com dinheiro. Saque antes de fechar.");
+            return;
         }
         else if (this.getSaldo() < 0) {
             System.out.println("ERRO: Conta em débito. Regularize o saldo.");
+            return;
         }
         else {
             this.setStatus(false);
@@ -98,9 +100,9 @@ public class ContaBanco {
      */
     public void pagarMensal() {
         int valorMensal = 0;
-        if (this.getTipo().equalsIgnoreCase("CC")) {
+        if (this.getTipo() == TipoConta.CC) {
             valorMensal = 12; // Valor para CC
-        } else if (this.getTipo().equalsIgnoreCase("CP")) {
+        } else if (this.getTipo() == TipoConta.CP) {
             valorMensal = 20; // Valor para CP
         }
 
